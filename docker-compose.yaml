@@ -1,0 +1,29 @@
+services:
+
+  telegram:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/home/jovyan/
+    ports:
+      - "8888:8888"
+
+  # jupyter:
+  #   image: jupyter/minimal-notebook
+  #   volumes:
+  #     - ./:/home/jovyan/
+  #   ports:
+  #     - "8888:8888"
+  
+  postgres:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: my_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
