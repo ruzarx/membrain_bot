@@ -7,8 +7,8 @@ from aiogram.client.default import DefaultBotProperties
 
 import asyncio
 
-from postgres_connector import DBConnect
-from data_structures import ReminderRecord
+from bot.postgres_connector import DBConnect
+from bot.data_structures import ReminderRecord
 
 db = DBConnect()
 

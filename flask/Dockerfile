@@ -9,4 +9,6 @@ RUN apt-get update
 COPY . /code/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
-CMD ["python", "main.py"]
+EXPOSE 5000
+ENTRYPOINT [ "python" ]
+CMD ["app.py"]

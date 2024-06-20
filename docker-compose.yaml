@@ -1,21 +1,19 @@
 services:
+    
+  bot:
+      build:
+        context: ./bot
+        dockerfile: Dockerfile
+      volumes:
+        - ./:/home/jovyan/
 
-  telegram:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/home/jovyan/
-    ports:
-      - "8888:8888"
+  flask:
+      build:
+        context: ./flask
+        dockerfile: Dockerfile
+      volumes:
+        - ./:/home/jovyan/
 
-  # jupyter:
-  #   image: jupyter/minimal-notebook
-  #   volumes:
-  #     - ./:/home/jovyan/
-  #   ports:
-  #     - "8888:8888"
-  
   postgres:
     image: postgres:latest
     restart: always
@@ -27,3 +25,4 @@ services:
       - "5432:5432"
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      

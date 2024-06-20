@@ -15,8 +15,8 @@ class DBConnect():
         # engine = sqlalchemy.create_engine("postgresql+psycopg2://postgres:postgres@postgres:5432/my_db")
         with self.__get_db_connector().cursor() as cursor:
             cursor.execute((f"""
-                            INSERT INTO {table} (user_id, reminder_txt, reminder_date) VALUES 
-                            ('{record.user_id}', '{record.reminder_txt}', '{record.reminder_date}')
+                            INSERT INTO {table} (user_id, query_txt, reminder_txt, reminder_date) VALUES 
+                            ('{record.user_id}', '{record.query_txt}', '{record.reminder_txt}', '{record.reminder_date}')
                             """))
         print("Saved successfully")
         return

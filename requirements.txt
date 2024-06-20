@@ -1,5 +1,0 @@
-aiogram
-sqlalchemy==2.0.22
-psycopg2==2.9.9
-pandas
-# configparser==5.0.0

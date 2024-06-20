@@ -1,0 +1,5 @@
+python-telegram-bot
+requests
+# sqlalchemy==2.0.22
+psycopg2==2.9.9
+pandas
